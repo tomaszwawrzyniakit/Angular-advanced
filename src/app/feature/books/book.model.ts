@@ -20,3 +20,4 @@ export interface BookDetails {
 
 
 export type NewBookModel = Omit<BookModel, "id">
+export type BookModelSearchCriteria = { title_like: string }

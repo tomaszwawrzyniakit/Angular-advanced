@@ -10,12 +10,11 @@ import {BookRestService} from "../../core/book-rest.service";
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent {
-  books$:Observable<BookModel[]> = EMPTY;
+  books$: Observable<BookModel[]> = EMPTY;
 
   constructor(bookRestService: BookRestService) {
 
-    this.books$ = bookRestService.getBooks();
-
+    this.books$ = bookRestService.findAll();
   }
 
 

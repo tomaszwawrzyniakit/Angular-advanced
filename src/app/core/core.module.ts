@@ -2,7 +2,9 @@ import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NavigationBarComponent} from './navigation-bar/navigation-bar.component';
 import {FooterComponent} from './footer/footer.component';
+import {HttpClientModule} from "@angular/common/http";
 
+const reexportedModules = [HttpClientModule];
 
 @NgModule({
   declarations: [
@@ -10,11 +12,13 @@ import {FooterComponent} from './footer/footer.component';
     FooterComponent
   ],
   exports: [
+    ...reexportedModules,
     NavigationBarComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ...reexportedModules,
   ],
 })
 export class CoreModule {
