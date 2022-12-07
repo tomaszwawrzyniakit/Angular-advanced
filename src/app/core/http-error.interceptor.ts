@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
-import {catchError, EMPTY, Observable} from 'rxjs';
+import {catchError, Observable, throwError} from 'rxjs';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
@@ -25,8 +25,8 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           } else {
             console.log('Backend side error', httpError.status);
           }
-          return EMPTY;
-          // return throwError(httpError);
+          // return EMPTY;
+          return throwError(httpError);
           // return of(this.cache[request.url]);
         }
       )

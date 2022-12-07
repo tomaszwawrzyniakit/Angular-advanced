@@ -1,4 +1,4 @@
-import {APP_INITIALIZER, NgModule, Optional, SkipSelf} from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NavigationBarComponent} from './navigation-bar/navigation-bar.component';
 import {FooterComponent} from './footer/footer.component';
@@ -9,6 +9,7 @@ import {RetryInterceptor} from "./http-retry.interceptor";
 import {baseUrlToken} from "./base-url.token";
 import {environment} from "../../environment/environment";
 import {serverConfigurationInitializer} from "./server-configuration.initializer";
+import {GlobalErrorHandler} from "./global-error-handler.service";
 
 const reexportedModules = [HttpClientModule];
 
@@ -23,6 +24,12 @@ const reexportedModules = [HttpClientModule];
     FooterComponent,
   ],
   providers: [
+
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler
+    },
+
     {
       provide: baseUrlToken,
       useValue: environment.BASE_API
