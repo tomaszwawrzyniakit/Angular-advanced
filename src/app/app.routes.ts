@@ -13,5 +13,6 @@ export const routes: Routes = [
   {path: 'book/:id', component: BookDetailsComponent, resolve:{ book: BookResolver}},
   {path: 'book/:id/edit', component: BookEditComponent, canDeactivate: [NotSavedGuard], resolve:{ book: BookResolver}},
   {path: '', redirectTo: '/book-list', pathMatch: 'full'},
-  {path: '**', component: NotFoundComponent}
+  {path: 'not-found', component: NotFoundComponent},
+  {path: '**', redirectTo: '/not-found',}
 ];
