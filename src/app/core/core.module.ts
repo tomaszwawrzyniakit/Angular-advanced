@@ -2,7 +2,10 @@ import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NavigationBarComponent} from './navigation-bar/navigation-bar.component';
 import {FooterComponent} from './footer/footer.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {JwtTokenInterceptor} from "./jwt-token.interceptor";
+import {HttpErrorInterceptor} from "./http-error.interceptor";
+import {RetryInterceptor} from "./http-retry.interceptor";
 
 const reexportedModules = [HttpClientModule];
 
@@ -15,6 +18,25 @@ const reexportedModules = [HttpClientModule];
     ...reexportedModules,
     NavigationBarComponent,
     FooterComponent,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtTokenInterceptor,
+      multi: true
+    },
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    },
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RetryInterceptor,
+      multi: true
+    }
   ],
   imports: [
     CommonModule,
