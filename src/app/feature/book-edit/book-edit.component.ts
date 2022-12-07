@@ -4,7 +4,7 @@ import {map, Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {BookModel} from "../books/book.model";
 import { FormControl, FormGroup, Validators} from "@angular/forms";
-import {mojMaxLength} from "./validators";
+import {mojMaxLength} from "../../shared/forms/validators";
 
 
 @Component({

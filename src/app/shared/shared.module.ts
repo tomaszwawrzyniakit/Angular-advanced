@@ -4,12 +4,14 @@ import {CommonModule} from '@angular/common';
 import {BookRestService} from "../core/book-rest.service";
 import {RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
-import { ValidationErrorComponent } from './validation-error/validation-error.component';
+import { ValidationErrorComponent } from './forms/validation-error/validation-error.component';
+import { ValidationMsgPipe } from './forms/validation-msg.pipe';
 
 
 @NgModule({
   declarations: [
-    ValidationErrorComponent
+    ValidationErrorComponent,
+    ValidationMsgPipe
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
   exports: [CommonModule, RouterModule, ReactiveFormsModule, ValidationErrorComponent]
