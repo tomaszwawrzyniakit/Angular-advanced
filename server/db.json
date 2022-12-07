@@ -13,7 +13,8 @@
         "pages": 11,
         "format": "A5"
       },
-      "title": "JavaScript. The Good Parts"
+      "title": "JavaScript. The Good Parts",
+      "description": "DESC"
     },
     {
       "id": 1,
@@ -25,7 +26,8 @@
         "pages": 11,
         "format": "A6"
       },
-      "title": "Get Yor Hands Dirty on Clean Architecture"
+      "title": "Get Yor Hands Dirty on Clean Architecture",
+      "description": "DESC"
     },
     {
       "id": 2,
@@ -37,7 +39,8 @@
         "pages": 11,
         "format": "A4"
       },
-      "title": "Clean Code"
+      "title": "Clean Code",
+      "description": "DESC"
     },
     {
       "id": 3,
@@ -49,7 +52,8 @@
         "pages": 11,
         "format": "A5"
       },
-      "title": "Copying and Pasting from Stack Overflow"
+      "title": "Copying and Pasting from Stack Overflow",
+      "description": "DESC"
     }
   ]
 }

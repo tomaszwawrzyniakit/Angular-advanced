@@ -1,3 +1,5 @@
+import {FormControl, FormGroup} from "@angular/forms";
+
 export interface BookModel {
   id: number;
   author: BookAuthor;
@@ -5,7 +7,7 @@ export interface BookModel {
   details: BookDetails;
 
   title: string;
-  description?: string;
+  description: string;
 
 }
 
@@ -18,6 +20,13 @@ export interface BookDetails {
   pages: number;
   format: string;
 }
+
+export type ControlsOf<T> ={
+  [K in keyof T]: T[K] extends string | number
+    ? FormControl<T[K]>
+    : FormGroup<ControlsOf<T[K]>>
+}
+
 
 
 export type NewBookModel = Omit<BookModel, "id">
