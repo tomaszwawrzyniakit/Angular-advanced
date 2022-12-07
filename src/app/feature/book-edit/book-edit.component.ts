@@ -1,8 +1,7 @@
 import {Component, OnDestroy} from '@angular/core';
-import {filter, map, Subscription, switchMap} from "rxjs";
+import {map, Subscription} from "rxjs";
 
 import {ActivatedRoute} from "@angular/router";
-import {BookRestService} from "../../core/book-rest.service";
 import {BookModel} from "../books/book.model";
 
 @Component({
@@ -13,17 +12,21 @@ import {BookModel} from "../books/book.model";
 export class BookEditComponent implements OnDestroy {
 
   protected book?: BookModel;
+  private dirty = false;
   private bookSubscription: Subscription;
 
-  constructor(private bookRest: BookRestService, private activatedRoute: ActivatedRoute) {
-    this.bookSubscription = this.activatedRoute.paramMap.pipe(
-      map(params => params.get('id')),
-      filter((id): id is string => !!id),
-      switchMap(id => this.bookRest.findById(id))
-    ).subscribe(book => (this.book = book))
+  constructor( private activatedRoute: ActivatedRoute) {
+    this.bookSubscription = this.activatedRoute.data.pipe(map(data => data['book']!)).subscribe(book => (this.book = book))
 
   }
 
+  setDirty() {
+    this.dirty = true;
+  }
+
+  isDirty() {
+    return this.dirty;
+  }
 
   ngOnDestroy() {
     if (this.bookSubscription) {

@@ -9,13 +9,13 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 export class BookDetailsNavigatorComponent {
 
   @Input('forBookWithId')
-  currentBookId!: string;
+  currentBookId!: number;
 
   get nextBookId() {
-    return +this.currentBookId! + 1;
+    return this.currentBookId! + 1;
   }
 
   get prevBookId() {
-    return +this.currentBookId! - 1;
+    return this.currentBookId! - 1;
   }
 }
