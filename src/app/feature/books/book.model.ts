@@ -2,9 +2,10 @@ export interface BookModel {
   id: number;
   author: BookAuthor;
 
-  details?: BookDetails;
+  details: BookDetails;
 
   title: string;
+  description?: string;
 
 }
 

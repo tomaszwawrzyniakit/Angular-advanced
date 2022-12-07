@@ -10,6 +10,7 @@ import {baseUrlToken} from "./base-url.token";
 import {environment} from "../../environment/environment";
 import {serverConfigurationInitializer} from "./server-configuration.initializer";
 import {GlobalErrorHandler} from "./global-error-handler.service";
+import {RouterModule} from "@angular/router";
 
 const reexportedModules = [HttpClientModule];
 
@@ -62,6 +63,7 @@ const reexportedModules = [HttpClientModule];
   ],
   imports: [
     CommonModule,
+    RouterModule,
     ...reexportedModules,
   ],
 })

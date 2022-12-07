@@ -7,12 +7,12 @@
     <div class="row g-3">
       <div class="col-12">
         <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title">
+        <input type="text" class="form-control" id="title" [value]="book?.title">
       </div>
 
       <div class="col-12">
         <label for="description" class="form-label">Description <span class="text-muted">(Optional)</span></label>
-        <textarea type="text" class="form-control" id="description"></textarea>
+        <textarea type="text" class="form-control" id="description" [value]="book?.description"></textarea>
       </div>
     </div>
 
@@ -22,12 +22,12 @@
     <div class="row g-3">
       <div class="col-sm-6">
         <label for="firstName" class="form-label">First name</label>
-        <input type="text" class="form-control" id="firstName">
+        <input type="text" class="form-control" id="firstName" [value]="book?.author?.firstName">
       </div>
 
       <div class="col-sm-6">
         <label for="lastName" class="form-label">Last name</label>
-        <input type="text" class="form-control" id="lastName">
+        <input type="text" class="form-control" id="lastName" [value]="book?.author?.lastName">
       </div>
     </div>
 
@@ -37,12 +37,12 @@
     <div class="row gy-3">
       <div class="col-md-6">
         <label for="pages" class="form-label">Pages</label>
-        <input type="text" class="form-control" id="pages">
+        <input type="text" class="form-control" id="pages" [value]="book?.details?.pages">
       </div>
 
       <div class="col-md-6">
         <label for="format" class="form-label">Format</label>
-        <input type="text" class="form-control" id="format">
+        <input type="text" class="form-control" id="format" [value]="book?.details?.format">
       </div>
 
     </div>

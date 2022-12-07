@@ -3,6 +3,7 @@ import {EMPTY, Observable} from "rxjs";
 
 import {BookModel} from "./book.model";
 import {BookRestService} from "../../core/book-rest.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-books',
@@ -12,13 +13,13 @@ import {BookRestService} from "../../core/book-rest.service";
 export class BooksComponent {
   books$: Observable<BookModel[]> = EMPTY;
 
-  constructor(bookRestService: BookRestService) {
+  constructor(bookRestService: BookRestService, private router: Router) {
 
     this.books$ = bookRestService.findAll();
   }
 
 
   bookSelected(book: BookModel) {
-    alert(book);
+    this.router.navigate(['book', book.id]);
   }
 }
