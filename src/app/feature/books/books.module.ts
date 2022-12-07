@@ -4,6 +4,7 @@ import {BooksComponent} from "./books.component";
 import {SharedModule} from "../../shared/shared.module";
 import { BookTableComponent } from './components/book-table/book-table.component';
 import { BookFilterPanelComponent } from './components/book-filter-panel/book-filter-panel.component';
+import {CoreModule} from "../../core/core.module";
 
 
 @NgModule({
@@ -13,8 +14,7 @@ import { BookFilterPanelComponent } from './components/book-filter-panel/book-fi
     BookFilterPanelComponent,
   ],
   exports: [BooksComponent],
-  imports: [SharedModule],
-  providers: []
+  imports: [SharedModule, CoreModule],
 })
 export class BooksModule {
 }

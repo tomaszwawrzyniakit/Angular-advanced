@@ -1,4 +1,5 @@
-<div class="bg-light col border rounded-3">
+<div class="bg-light col border rounded-3" >
   <app-book-filter-panel></app-book-filter-panel>
   <app-book-table [books]="books$ | async" (bookSelected)="bookSelected($event)" ></app-book-table>
 </div>
+

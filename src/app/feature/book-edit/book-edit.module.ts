@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 
 import {BookEditComponent} from "./book-edit.component";
+import {CoreModule} from "../../core/core.module";
 
 
 @NgModule({
@@ -8,7 +9,7 @@ import {BookEditComponent} from "./book-edit.component";
     BookEditComponent,
   ],
   exports: [BookEditComponent],
-  imports: [],
+  imports: [CoreModule],
   providers: []
 })
 export class BookEditModule {
