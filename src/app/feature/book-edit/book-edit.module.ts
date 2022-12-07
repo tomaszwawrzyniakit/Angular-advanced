@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 
 import {BookEditComponent} from "./book-edit.component";
-import {CoreModule} from "../../core/core.module";
+import {SharedModule} from "../../shared/shared.module";
 
 
 @NgModule({
@@ -9,7 +9,7 @@ import {CoreModule} from "../../core/core.module";
     BookEditComponent,
   ],
   exports: [BookEditComponent],
-  imports: [CoreModule],
+  imports: [SharedModule],
   providers: []
 })
 export class BookEditModule {

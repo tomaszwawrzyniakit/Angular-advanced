@@ -1,48 +1,64 @@
 <div class="bg-light col border rounded-3">
 
-  <form class="p-5">
+  <form class="p-5" [formGroup]="bookForm">
 
     <h4 class="my-4 mb-3">Basic</h4>
 
     <div class="row g-3">
       <div class="col-12">
         <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" [value]="book?.title" (change)="setDirty()">
+        <!--        <input type="text" class="form-control" id="title" formControlName="title"-->
+        <!--               class="{{bookForm.get('title')?.hasError('required')? 'is-invalid': ''}}"-->
+        <!--        >-->
+        <!--        <input type="text" class="form-control" id="title" formControlName="title"-->
+        <!--               [ngClass]="{-->
+        <!--                    'is-invalid': bookForm.get('title')?.hasError('required')-->
+        <!--               }"-->
+        <!--        >-->
+        <!--        <input type="text" class="form-control" id="title" formControlName="title"-->
+        <!--               [class.is-invalid]="bookForm.get('title')?.hasError('required')"-->
+        <!--        >-->
+        <input type="text" class="form-control" id="title" formControlName="title">
+        <app-validation-error [for]="bookForm.get('title')!"></app-validation-error>
       </div>
-
       <div class="col-12">
         <label for="description" class="form-label">Description <span class="text-muted">(Optional)</span></label>
-        <textarea type="text" class="form-control" id="description" [value]="book?.description"></textarea>
+        <textarea type="text" class="form-control" id="description" formControlName="description"></textarea>
+        <app-validation-error [for]="bookForm.get('description')!"></app-validation-error>
       </div>
     </div>
 
     <hr class="my-4">
 
     <h4 class="mb-3">Author</h4>
-    <div class="row g-3">
+    <div class="row g-3" formGroupName="author">
       <div class="col-sm-6">
         <label for="firstName" class="form-label">First name</label>
-        <input type="text" class="form-control" id="firstName" [value]="book?.author?.firstName">
+        <input type="text" class="form-control" id="firstName" formControlName="firstName">
+        <app-validation-error [for]="bookForm.get('author.firstName')!"></app-validation-error>
       </div>
 
       <div class="col-sm-6">
         <label for="lastName" class="form-label">Last name</label>
-        <input type="text" class="form-control" id="lastName" [value]="book?.author?.lastName">
+        <input type="text" class="form-control" id="lastName" formControlName="lastName">
+        <app-validation-error [for]="bookForm.get('author.lastName')!"></app-validation-error>
       </div>
     </div>
 
     <hr class="my-4">
 
     <h4 class="mb-3">Details</h4>
-    <div class="row gy-3">
+    <div class="row gy-3" formGroupName="details">
       <div class="col-md-6">
         <label for="pages" class="form-label">Pages</label>
-        <input type="text" class="form-control" id="pages" [value]="book?.details?.pages">
+        <input type="text" class="form-control" id="pages" formControlName="pages">
+        <app-validation-error [for]="bookForm.get('details.pages')!"></app-validation-error>
       </div>
 
       <div class="col-md-6">
         <label for="format" class="form-label">Format</label>
-        <input type="text" class="form-control" id="format" [value]="book?.details?.format">
+        <input type="text" class="form-control" id="format" formControlName="format">
+        <app-validation-error [for]="bookForm.get('details.format')!"></app-validation-error>
       </div>
 
     </div>

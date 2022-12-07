@@ -20,7 +20,6 @@ import {routes} from "./app.routes";
     FeaturesModule,
     SharedModule.forRoot(),
     RouterModule.forRoot(routes, {
-      enableTracing: true
     })
   ],
   providers: [],

@@ -1,0 +1,6 @@
+<span *ngIf="formControl?.hasError('required')"> Field is required!</span>
+<span *ngIf="formControl?.hasError('max')"> Too big!</span>
+<span *ngIf="formControl?.hasError('mojMaxLength')"> Too long!</span>
+
+
+{{ formControl?.errors | json}}
